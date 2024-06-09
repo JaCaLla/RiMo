@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol CharactersViewControllerProtocol: AnyObject {
+    func showDetail(character: Character)
+}
+
 class CharactersViewController: UIViewController {
     
     // MARK: - @IBOutlet
@@ -19,14 +23,17 @@ class CharactersViewController: UIViewController {
     
     // MARK: - Private attributes
     private var presenter: CharactersPresenterProtocol = CharactersPresenter()
+    private weak var delegate: CharactersViewControllerProtocol?
     
     // MARK: - Constructor/Initializer
-    public static func instantiate(presenter: CharactersPresenterProtocol = CharactersPresenter()) -> CharactersViewController {
+    public static func instantiate(delegate: CharactersViewControllerProtocol,
+                                   presenter: CharactersPresenterProtocol = CharactersPresenter()) -> CharactersViewController {
         let storyboard = UIStoryboard(name: "Characters", bundle: nil)
         guard let charactersViewController = storyboard.instantiateViewController(withIdentifier: String(describing: CharactersViewController.self)) as? CharactersViewController else {
             return CharactersViewController()
         }
         charactersViewController.presenter = presenter
+        charactersViewController.delegate = delegate
         return charactersViewController
     }
     
@@ -54,6 +61,7 @@ class CharactersViewController: UIViewController {
         self.noDataView.isUserInteractionEnabled = true
                                         
         self.charactersListView.set(presenter: presenter)
+       self.charactersListView.charactersListViewDelegate = self
     }
     
     @objc func handleTap(_ sender: UITapGestureRecognizer) {
@@ -87,5 +95,12 @@ class CharactersViewController: UIViewController {
              }))
         alert.addAction(UIAlertAction(title: "alert_continue".localized, style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
+    }
+}
+
+// MARK :- CharactersListViewProtocol
+extension CharactersViewController: CharactersListViewProtocol {
+    func showDetail(character: Character) {
+        delegate?.showDetail(character: character)
     }
 }

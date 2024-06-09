@@ -38,6 +38,10 @@
 		29C3A6132C15C89B00162297 /* MainFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C3A6122C15C89B00162297 /* MainFlowCoordinator.swift */; };
 		29C3A6162C15C91800162297 /* Characters.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29C3A6152C15C91800162297 /* Characters.storyboard */; };
 		29C3A61B2C15C98800162297 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 29C3A6192C15C98800162297 /* Localizable.strings */; };
+		29C3A61E2C15D1E000162297 /* DetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C3A61D2C15D1E000162297 /* DetailCoordinator.swift */; };
+		29C3A6202C15D20100162297 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C3A61F2C15D20100162297 /* DetailViewController.swift */; };
+		29C3A6222C15D22200162297 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C3A6212C15D22200162297 /* DetailViewModel.swift */; };
+		29C3A6242C15D27200162297 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C3A6232C15D27200162297 /* DetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +89,10 @@
 		29C3A6122C15C89B00162297 /* MainFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFlowCoordinator.swift; sourceTree = "<group>"; };
 		29C3A6152C15C91800162297 /* Characters.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Characters.storyboard; sourceTree = "<group>"; };
 		29C3A61A2C15C98800162297 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		29C3A61D2C15D1E000162297 /* DetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCoordinator.swift; sourceTree = "<group>"; };
+		29C3A61F2C15D20100162297 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		29C3A6212C15D22200162297 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		29C3A6232C15D27200162297 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,14 +134,14 @@
 		294C32282C15B2EE00F49179 /* RiMo */ = {
 			isa = PBXGroup;
 			children = (
-				29C3A60F2C15C7D000162297 /* Support */,
-				29C3A6042C15C64200162297 /* Extensions */,
+				294C32292C15B2EE00F49179 /* AppDelegate.swift */,
 				29C3A5F52C15C2C900162297 /* CurrentApp.swift */,
+				29C3A6122C15C89B00162297 /* MainFlowCoordinator.swift */,
+				294C322B2C15B2EE00F49179 /* SceneDelegate.swift */,
 				29C3A5F02C15C26E00162297 /* ViewLayer */,
 				29C3A5D22C15B60100162297 /* DataLayer */,
-				294C32292C15B2EE00F49179 /* AppDelegate.swift */,
-				294C322B2C15B2EE00F49179 /* SceneDelegate.swift */,
-				29C3A6122C15C89B00162297 /* MainFlowCoordinator.swift */,
+				29C3A6042C15C64200162297 /* Extensions */,
+				29C3A60F2C15C7D000162297 /* Support */,
 				294C32372C15B2F000F49179 /* Info.plist */,
 			);
 			path = RiMo;
@@ -208,9 +216,9 @@
 		29C3A5F02C15C26E00162297 /* ViewLayer */ = {
 			isa = PBXGroup;
 			children = (
-				29C3A6172C15C94800162297 /* Resources */,
+				29C3A5F82C15C34400162297 /* Controllers */,
+				29C3A6172C15C94800162297 /* Resource */,
 				29C3A6142C15C90600162297 /* Storyboards */,
-				29C3A5F82C15C34400162297 /* Controllerss */,
 			);
 			path = ViewLayer;
 			sourceTree = "<group>";
@@ -244,12 +252,13 @@
 			path = ViewLayer;
 			sourceTree = "<group>";
 		};
-		29C3A5F82C15C34400162297 /* Controllerss */ = {
+		29C3A5F82C15C34400162297 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				29C3A61C2C15D19A00162297 /* Detail */,
 				29C3A5F12C15C27D00162297 /* Characters */,
 			);
-			path = Controllerss;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		29C3A5F92C15C35D00162297 /* Conrollers */ = {
@@ -288,13 +297,13 @@
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
-		29C3A6172C15C94800162297 /* Resources */ = {
+		29C3A6172C15C94800162297 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
 				294C32322C15B2F000F49179 /* Assets.xcassets */,
 				29C3A6182C15C95300162297 /* String */,
 			);
-			path = Resources;
+			path = Resource;
 			sourceTree = "<group>";
 		};
 		29C3A6182C15C95300162297 /* String */ = {
@@ -303,6 +312,17 @@
 				29C3A6192C15C98800162297 /* Localizable.strings */,
 			);
 			path = String;
+			sourceTree = "<group>";
+		};
+		29C3A61C2C15D19A00162297 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				29C3A61D2C15D1E000162297 /* DetailCoordinator.swift */,
+				29C3A61F2C15D20100162297 /* DetailViewController.swift */,
+				29C3A6212C15D22200162297 /* DetailViewModel.swift */,
+				29C3A6232C15D27200162297 /* DetailView.swift */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -415,13 +435,17 @@
 				29C3A5ED2C15BC7C00162297 /* DataManager.swift in Sources */,
 				29C3A6032C15C5F100162297 /* CharactersViewController.swift in Sources */,
 				29C3A5EA2C15BBA700162297 /* Character.swift in Sources */,
+				29C3A6242C15D27200162297 /* DetailView.swift in Sources */,
 				29C3A6132C15C89B00162297 /* MainFlowCoordinator.swift in Sources */,
 				294C322A2C15B2EE00F49179 /* AppDelegate.swift in Sources */,
 				29C3A5DA2C15B73100162297 /* CharacterService.swift in Sources */,
 				29C3A6112C15C7DF00162297 /* ImagesCache.swift in Sources */,
 				29C3A5F62C15C2C900162297 /* CurrentApp.swift in Sources */,
 				29C3A60C2C15C76200162297 /* CharactersListViewCell.swift in Sources */,
+				29C3A6222C15D22200162297 /* DetailViewModel.swift in Sources */,
+				29C3A61E2C15D1E000162297 /* DetailCoordinator.swift in Sources */,
 				29C3A5D82C15B6BA00162297 /* ErrorService.swift in Sources */,
+				29C3A6202C15D20100162297 /* DetailViewController.swift in Sources */,
 				29C3A5DD2C15B76B00162297 /* ResponseJson.swift in Sources */,
 				29C3A6012C15C59800162297 /* CharactersCoordinator.swift in Sources */,
 				29C3A5DF2C15B7BA00162297 /* InfoApi.swift in Sources */,
