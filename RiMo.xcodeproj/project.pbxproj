@@ -13,9 +13,19 @@
 		294C32312C15B2EE00F49179 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 294C32302C15B2EE00F49179 /* Base */; };
 		294C32332C15B2F000F49179 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 294C32322C15B2F000F49179 /* Assets.xcassets */; };
 		294C32362C15B2F000F49179 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 294C32352C15B2F000F49179 /* Base */; };
-		294C32412C15B2F000F49179 /* RiMoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294C32402C15B2F000F49179 /* RiMoTests.swift */; };
 		294C324B2C15B2F000F49179 /* RiMoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294C324A2C15B2F000F49179 /* RiMoUITests.swift */; };
 		294C324D2C15B2F000F49179 /* RiMoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 294C324C2C15B2F000F49179 /* RiMoUITestsLaunchTests.swift */; };
+		29C3A5D62C15B67100162297 /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C3A5D52C15B67100162297 /* BaseService.swift */; };
+		29C3A5D82C15B6BA00162297 /* ErrorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C3A5D72C15B6BA00162297 /* ErrorService.swift */; };
+		29C3A5DA2C15B73100162297 /* CharacterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C3A5D92C15B73100162297 /* CharacterService.swift */; };
+		29C3A5DD2C15B76B00162297 /* ResponseJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C3A5DC2C15B76B00162297 /* ResponseJson.swift */; };
+		29C3A5DF2C15B7BA00162297 /* InfoApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C3A5DE2C15B7BA00162297 /* InfoApi.swift */; };
+		29C3A5E12C15B7DE00162297 /* CharacterJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C3A5E02C15B7DE00162297 /* CharacterJson.swift */; };
+		29C3A5E32C15B7FF00162297 /* LocationAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C3A5E22C15B7FF00162297 /* LocationAPI.swift */; };
+		29C3A5E72C15B88100162297 /* CharacterServiceUT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C3A5E62C15B88100162297 /* CharacterServiceUT.swift */; };
+		29C3A5EA2C15BBA700162297 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C3A5E92C15BBA700162297 /* Character.swift */; };
+		29C3A5ED2C15BC7C00162297 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C3A5EC2C15BC7C00162297 /* DataManager.swift */; };
+		29C3A5EF2C15BCC100162297 /* DataManagerUT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C3A5EE2C15BCC100162297 /* DataManagerUT.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,10 +55,20 @@
 		294C32352C15B2F000F49179 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		294C32372C15B2F000F49179 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		294C323C2C15B2F000F49179 /* RiMoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RiMoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		294C32402C15B2F000F49179 /* RiMoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiMoTests.swift; sourceTree = "<group>"; };
 		294C32462C15B2F000F49179 /* RiMoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RiMoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		294C324A2C15B2F000F49179 /* RiMoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiMoUITests.swift; sourceTree = "<group>"; };
 		294C324C2C15B2F000F49179 /* RiMoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiMoUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		29C3A5D52C15B67100162297 /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = SOURCE_ROOT; };
+		29C3A5D72C15B6BA00162297 /* ErrorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorService.swift; sourceTree = "<group>"; };
+		29C3A5D92C15B73100162297 /* CharacterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterService.swift; sourceTree = "<group>"; };
+		29C3A5DC2C15B76B00162297 /* ResponseJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseJson.swift; sourceTree = "<group>"; };
+		29C3A5DE2C15B7BA00162297 /* InfoApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoApi.swift; sourceTree = "<group>"; };
+		29C3A5E02C15B7DE00162297 /* CharacterJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterJson.swift; sourceTree = "<group>"; };
+		29C3A5E22C15B7FF00162297 /* LocationAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationAPI.swift; sourceTree = "<group>"; };
+		29C3A5E62C15B88100162297 /* CharacterServiceUT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterServiceUT.swift; sourceTree = "<group>"; };
+		29C3A5E92C15BBA700162297 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		29C3A5EC2C15BC7C00162297 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		29C3A5EE2C15BCC100162297 /* DataManagerUT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManagerUT.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +119,7 @@
 		294C32282C15B2EE00F49179 /* RiMo */ = {
 			isa = PBXGroup;
 			children = (
+				29C3A5D22C15B60100162297 /* DataLayer */,
 				294C32292C15B2EE00F49179 /* AppDelegate.swift */,
 				294C322B2C15B2EE00F49179 /* SceneDelegate.swift */,
 				294C322D2C15B2EE00F49179 /* ViewController.swift */,
@@ -113,7 +134,7 @@
 		294C323F2C15B2F000F49179 /* RiMoTests */ = {
 			isa = PBXGroup;
 			children = (
-				294C32402C15B2F000F49179 /* RiMoTests.swift */,
+				29C3A5E42C15B81C00162297 /* DataLayer */,
 			);
 			path = RiMoTests;
 			sourceTree = "<group>";
@@ -125,6 +146,63 @@
 				294C324C2C15B2F000F49179 /* RiMoUITestsLaunchTests.swift */,
 			);
 			path = RiMoUITests;
+			sourceTree = "<group>";
+		};
+		29C3A5D22C15B60100162297 /* DataLayer */ = {
+			isa = PBXGroup;
+			children = (
+				29C3A5E82C15BB4100162297 /* Model */,
+				29C3A5D32C15B62400162297 /* Services */,
+				29C3A5EC2C15BC7C00162297 /* DataManager.swift */,
+			);
+			path = DataLayer;
+			sourceTree = "<group>";
+		};
+		29C3A5D32C15B62400162297 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				29C3A5D42C15B64F00162297 /* Json */,
+				29C3A5D52C15B67100162297 /* BaseService.swift */,
+				29C3A5D92C15B73100162297 /* CharacterService.swift */,
+				29C3A5D72C15B6BA00162297 /* ErrorService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		29C3A5D42C15B64F00162297 /* Json */ = {
+			isa = PBXGroup;
+			children = (
+				29C3A5DC2C15B76B00162297 /* ResponseJson.swift */,
+				29C3A5E02C15B7DE00162297 /* CharacterJson.swift */,
+				29C3A5E22C15B7FF00162297 /* LocationAPI.swift */,
+				29C3A5DE2C15B7BA00162297 /* InfoApi.swift */,
+			);
+			path = Json;
+			sourceTree = "<group>";
+		};
+		29C3A5E42C15B81C00162297 /* DataLayer */ = {
+			isa = PBXGroup;
+			children = (
+				29C3A5E52C15B82600162297 /* Services */,
+				29C3A5EE2C15BCC100162297 /* DataManagerUT.swift */,
+			);
+			path = DataLayer;
+			sourceTree = "<group>";
+		};
+		29C3A5E52C15B82600162297 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				29C3A5E62C15B88100162297 /* CharacterServiceUT.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		29C3A5E82C15BB4100162297 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				29C3A5E92C15BBA700162297 /* Character.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,9 +336,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29C3A5D62C15B67100162297 /* BaseService.swift in Sources */,
+				29C3A5ED2C15BC7C00162297 /* DataManager.swift in Sources */,
 				294C322E2C15B2EE00F49179 /* ViewController.swift in Sources */,
+				29C3A5EA2C15BBA700162297 /* Character.swift in Sources */,
 				294C322A2C15B2EE00F49179 /* AppDelegate.swift in Sources */,
+				29C3A5DA2C15B73100162297 /* CharacterService.swift in Sources */,
+				29C3A5D82C15B6BA00162297 /* ErrorService.swift in Sources */,
+				29C3A5DD2C15B76B00162297 /* ResponseJson.swift in Sources */,
+				29C3A5DF2C15B7BA00162297 /* InfoApi.swift in Sources */,
+				29C3A5E32C15B7FF00162297 /* LocationAPI.swift in Sources */,
 				294C322C2C15B2EE00F49179 /* SceneDelegate.swift in Sources */,
+				29C3A5E12C15B7DE00162297 /* CharacterJson.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,7 +355,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				294C32412C15B2F000F49179 /* RiMoTests.swift in Sources */,
+				29C3A5EF2C15BCC100162297 /* DataManagerUT.swift in Sources */,
+				29C3A5E72C15B88100162297 /* CharacterServiceUT.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
