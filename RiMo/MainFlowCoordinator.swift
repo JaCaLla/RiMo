@@ -31,8 +31,12 @@ class MainFlowCoordinator {
         
         charactersCoordinator.start(navitagionController: navigationController)
         
-        if let window = UIApplication.shared.keyWindow {
-            window.rootViewController  = navigationController
-        }
+        let window = UIApplication
+            .shared
+            .connectedScenes
+            .compactMap { $0 as? UIWindowScene }
+            .flatMap { $0.windows }
+            .last { $0.isKeyWindow }
+        window?.rootViewController  = navigationController
     }
 }
