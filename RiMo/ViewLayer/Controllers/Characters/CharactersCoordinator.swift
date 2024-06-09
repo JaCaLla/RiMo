@@ -21,8 +21,7 @@ final class CharactersCoordinator {
     
     // MARK: - Private methods
     private func presentCharacterList() {
-        let interactor = CharactersInteractor()
-        let presenter = CharactersPresenter(interactor: interactor)
+        let presenter = CharactersPresenter()
         let charactersViewController = CharactersViewController.instantiate(delegate: self, presenter: presenter)
         navigationController.pushViewController(charactersViewController, animated: true)
     }

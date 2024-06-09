@@ -12,19 +12,22 @@ protocol CharactersPresenterProtocol {
 
 class CharactersPresenter {
     
-    // MARK: - Private attributes
-    private var interactor: CharactersInteractorProtocol
-
-    // MARK: - Constructor/Initializer
-    init(interactor: CharactersInteractorProtocol = CharactersInteractor()) {
-        self.interactor = interactor
-    }
 }
 
 // MARK :- CharactersPresenterProtocol
 extension CharactersPresenter: CharactersPresenterProtocol {
     
     func fetch(completion: @escaping (Result<[Character],Error>) -> Void) {
-        interactor.fetch(completion: completion)
+        Task {
+            let service = CharacterService()
+            let result = await service.fetch()
+            switch result {
+            case .success(let responseApiCharacterApi):
+                let characters = responseApiCharacterApi.results.map { Character($0) }
+                completion(.success(characters))
+            case .failure (let error):
+                completion(.failure(error))
+            }
+        }
     }
 }
