@@ -8,8 +8,8 @@
 import Foundation
 import UIKit
 
-
-class MainFlowCoordinator {
+@MainActor
+final class MainFlowCoordinator {
     
     // MARK: - Singleton handler
     static let shared = MainFlowCoordinator()

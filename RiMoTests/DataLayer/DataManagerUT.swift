@@ -36,9 +36,11 @@ final class DataManagerUT: XCTestCase {
     }
 
     func testFetchCharactersWithError() async throws {
-        let characterService = CharacterService()
-        characterService.forcedErrorApi = .noDataResponse
-        
+        let characterService = await CharacterService()
+        await MainActor.run {
+            characterService.forcedErrorApi = .noDataResponse
+        }
+       
         let result = await sut.fetchCharacters(characterService)
         switch result {
         case .failure(let error):
@@ -49,9 +51,11 @@ final class DataManagerUT: XCTestCase {
     }
     
     func testFetchCharactersMockData() async throws {
-        let characterService = CharacterService()
-        let responseJson: ResponseJson<CharacterJson> = ResponseJson(info: InfoJson(count: 2), results: [CharacterJson.sample])
-        characterService.forcedResposeApi = responseJson
+        let characterService = await CharacterService()
+        await MainActor.run {
+            let responseJson: ResponseJson<CharacterJson> = ResponseJson(info: InfoJson(count: 2), results: [CharacterJson.sample])
+            characterService.forcedResposeApi = responseJson
+        }
         
         let result = await sut.fetchCharacters(characterService)
         switch result {

@@ -10,14 +10,17 @@ import XCTest
 @testable import RiMo
 import XCTest
 
+@preconcurrency @MainActor
 final class CharactersInteractorUT: XCTestCase {
     
     var sut: CharactersInteractorProtocol!
     var dataManager: DataManagerProtocol!
 
     override func setUpWithError() throws {
-        dataManager = DataManager()
-        sut = CharactersInteractor(dataManager: dataManager)
+        MainActor.assumeIsolated {
+            dataManager = DataManager()
+            sut = CharactersInteractor(dataManager: dataManager)
+        }
     }
 
     func testFetchWithData() throws {
@@ -62,7 +65,8 @@ final class CharactersInteractorUT: XCTestCase {
     }
 }
 
-class DataManagerMock : DataManagerProtocol {
+@MainActor
+final class DataManagerMock : DataManagerProtocol {
 
     
     var fetchCharactersCount = 0

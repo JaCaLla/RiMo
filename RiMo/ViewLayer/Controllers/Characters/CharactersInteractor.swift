@@ -4,12 +4,13 @@
 //
 //  Created by Javier Calartrava on 9/6/24.
 //
-
+@MainActor
 protocol CharactersInteractorProtocol {
     func fetch(completion: @escaping (Result<[Character], Error>) -> Void)
 }
 
-class CharactersInteractor {
+@MainActor
+final class CharactersInteractor {
     private var dataManager: DataManagerProtocol
     
     // MARK: - Constructor/Initializer

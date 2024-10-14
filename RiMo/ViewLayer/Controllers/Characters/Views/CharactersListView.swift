@@ -8,12 +8,14 @@
 import UIKit
 
 // MARK: - Protocol
+@MainActor
 protocol CharactersListViewProtocol: AnyObject {
     // func fetch()
     func showDetail(character: Character)
 }
 
 // MARK: - CharactersListView
+@MainActor
 class CharactersListView: UITableView {
 
     // MARK: - Private attributes
@@ -27,7 +29,9 @@ class CharactersListView: UITableView {
     // MARK: - Lifecycle/Overridden
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.setupView()
+        MainActor.assumeIsolated {
+            self.setupView()
+        }
     }
 
     // MARK: - Public methods

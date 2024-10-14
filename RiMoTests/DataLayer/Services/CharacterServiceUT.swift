@@ -8,12 +8,17 @@
 @testable import RiMo
 import XCTest
 
+@preconcurrency @MainActor
 final class CharacterServiceUT: XCTestCase {
     
     var sut: CharacterService!
 
     override func setUpWithError() throws {
-        sut = CharacterService()
+ //       sut = CharacterService()
+        
+        MainActor.assumeIsolated {
+            sut = CharacterService()
+        }
     }
 
     func testFetchCharacters() async throws {

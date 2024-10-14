@@ -4,12 +4,12 @@
 //
 //  Created by Javier Calartrava on 9/6/24.
 //
-
-protocol DataManagerProtocol {
+@MainActor
+protocol DataManagerProtocol: Sendable {
     func fetchCharacters(_ characterService: CharacterService?) async -> Result<[Character], Error>
 }
-
-internal final class DataManager: DataManagerProtocol {
+@MainActor
+internal final class DataManager: DataManagerProtocol, Sendable {
 
     func fetchCharacters(_ characterService: CharacterService?) async -> Result<[Character], Error> {
         let service = characterService ?? CharacterService()

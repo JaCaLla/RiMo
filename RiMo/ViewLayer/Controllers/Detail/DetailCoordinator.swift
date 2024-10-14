@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+@MainActor
 final class DetailCoordinator {
 
     // MARK: - Private attributes

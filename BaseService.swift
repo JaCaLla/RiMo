@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+@MainActor
 open class BaseService<T: Decodable> {
     private let apiScheme = "https"
     private let host = "rickandmortyapi.com"

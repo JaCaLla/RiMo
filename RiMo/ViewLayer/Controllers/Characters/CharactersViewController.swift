@@ -6,12 +6,13 @@
 //
 
 import UIKit
-
+@MainActor
 protocol CharactersViewControllerProtocol: AnyObject {
     func showDetail(character: Character)
 }
 
-class CharactersViewController: UIViewController {
+@MainActor
+final class CharactersViewController: UIViewController {
     
     // MARK: - @IBOutlet
     @IBOutlet weak var charactersListView: CharactersListView!
