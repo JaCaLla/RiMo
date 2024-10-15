@@ -12,7 +12,11 @@ protocol DataManagerProtocol: Sendable {
 internal final class DataManager: DataManagerProtocol, Sendable {
 
     func fetchCharacters(_ characterService: CharacterService?) async -> Result<[Character], Error> {
-        let service = characterService ?? CharacterService()
+        var service = characterService
+        if service == nil {
+            service = await CharacterService()
+        }
+        guard let service else { return .success([]) }
         let result = await service.fetch()
         switch result {
         case .success(let responseApiCharacterApi):

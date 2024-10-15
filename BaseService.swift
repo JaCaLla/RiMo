@@ -6,8 +6,10 @@
 //
 
 import Foundation
-@MainActor
-open class BaseService<T: Decodable> {
+//@MainActor
+//@preconcurrency
+@GlobalManager
+final class BaseService<T: Decodable> {
     private let apiScheme = "https"
     private let host = "rickandmortyapi.com"
     private let path = "/api/"
@@ -15,10 +17,25 @@ open class BaseService<T: Decodable> {
     
     var forcedErrorApi: ErrorService? = nil
     var forcedResposeApi: T? = nil
+    var param = ""
+    
+    init(param: String) {
+        self.param = param
+    }
     
     // MARK: - Open
-    open func getPathParam() -> String {
-        fatalError("Has to be implemented by subclass")
+    
+     func getPathParam() -> String {
+       // fatalError("Has to be implemented by subclass")
+        return param
+    }
+    
+    func setforcedErrorApi(_ error: ErrorService) {
+        forcedErrorApi = error
+    }
+    
+    func setforcedResposeApi(_ response: T) {
+        forcedResposeApi = response
     }
     
     // MARK: - APIManagerProtocol
@@ -45,7 +62,6 @@ open class BaseService<T: Decodable> {
                 return .failure(ErrorService.invalidHTTPResponse)
             }
             do {
-                //decoder.dateDecodingStrategy = dateDecodingStrategy()
                 let dataParsed: T = try self.decoder.decode(T.self, from: data)
                 return .success(dataParsed)
             } catch {

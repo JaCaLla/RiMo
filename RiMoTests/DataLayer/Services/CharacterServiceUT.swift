@@ -13,15 +13,12 @@ final class CharacterServiceUT: XCTestCase {
     
     var sut: CharacterService!
 
-    override func setUpWithError() throws {
- //       sut = CharacterService()
-        
-        MainActor.assumeIsolated {
-            sut = CharacterService()
-        }
+    func setupAsync() async {
+        sut = await CharacterService()
     }
 
     func testFetchCharacters() async throws {
+         await setupAsync()
         switch await sut.fetch() {
         case .success(let responseService):
             XCTAssertEqual(responseService.info.count, 826)
@@ -38,7 +35,8 @@ final class CharacterServiceUT: XCTestCase {
     }
 
     func testFetchNoData() async throws {
-        sut.forcedErrorApi = .noDataResponse
+        await setupAsync()
+        await sut.baseService.setforcedErrorApi(.noDataResponse)
         switch await sut.fetch() {
         case .success(_):
             XCTFail("Unexpected response")
@@ -49,7 +47,8 @@ final class CharacterServiceUT: XCTestCase {
 
     func testFetchMockData() async throws {
         let responseApi: ResponseJson<CharacterJson> = ResponseJson(info: InfoJson(count: 2), results: [CharacterJson.sample])
-        sut.forcedResposeApi = responseApi
+        await setupAsync()
+        await sut.baseService.setforcedResposeApi(responseApi)
         switch await sut.fetch() {
         case .success(let responseAPI):
             XCTAssertEqual(responseAPI.info.count, 2)
