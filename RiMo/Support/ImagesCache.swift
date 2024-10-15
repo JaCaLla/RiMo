@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+@MainActor
 internal final class ImagesCache: NSCache<AnyObject, AnyObject> {
     // MARK: - Constants
     static let shared = ImagesCache()

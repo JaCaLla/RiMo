@@ -8,14 +8,17 @@
 @testable import RiMo
 import XCTest
 
+@preconcurrency @MainActor
 final class CharactersPresenterUT: XCTestCase {
     
     var sut: CharactersPresenterProtocol!
     var interactorMock: CharactersInteractorMock!
 
     override func setUpWithError() throws {
-        interactorMock = CharactersInteractorMock()
-        sut = CharactersPresenter(interactor: interactorMock)
+        MainActor.assumeIsolated {
+            interactorMock = CharactersInteractorMock()
+            sut = CharactersPresenter(interactor: interactorMock)
+        }
     }
 
     func testFetchWithData() throws {

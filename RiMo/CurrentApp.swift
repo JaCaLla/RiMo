@@ -13,5 +13,6 @@ struct CurrentApp {
     }
 }
 
+@MainActor
 var currentApp = CurrentApp()
 

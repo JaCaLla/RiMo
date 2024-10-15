@@ -4,15 +4,19 @@
 //
 //  Created by Javier Calartrava on 9/6/24.
 //
-
-protocol DataManagerProtocol {
+@MainActor
+protocol DataManagerProtocol: Sendable {
     func fetchCharacters(_ characterService: CharacterService?) async -> Result<[Character], Error>
 }
-
-internal final class DataManager: DataManagerProtocol {
+@MainActor
+internal final class DataManager: DataManagerProtocol, Sendable {
 
     func fetchCharacters(_ characterService: CharacterService?) async -> Result<[Character], Error> {
-        let service = characterService ?? CharacterService()
+        var service = characterService
+        if service == nil {
+            service = await CharacterService()
+        }
+        guard let service else { return .success([]) }
         let result = await service.fetch()
         switch result {
         case .success(let responseApiCharacterApi):

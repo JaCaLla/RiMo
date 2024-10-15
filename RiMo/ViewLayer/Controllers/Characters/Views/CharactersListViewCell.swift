@@ -7,7 +7,8 @@
 
 import UIKit
 
-class CharactersListViewCell: UITableViewCell {
+@MainActor
+final class CharactersListViewCell: UITableViewCell {
     
     // MARK: - @IBOutlet
     @IBOutlet weak var nameLabel: UILabel!
@@ -16,7 +17,9 @@ class CharactersListViewCell: UITableViewCell {
     // MARK: - Lifecycle/Overridden
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.accessoryType = .disclosureIndicator
+        MainActor.assumeIsolated {
+            self.accessoryType = .disclosureIndicator
+        }
     }
     
     // MARK: - Public/Helper
@@ -24,7 +27,9 @@ class CharactersListViewCell: UITableViewCell {
         guard nameLabel != nil else { return }
         self.nameLabel.text = character.name
         if let url = URL(string: character.imageUrl) {
-            characterIcon.setImage(from: url)
+            Task {
+                await characterIcon.setImage(from: url)
+            }
         }
     }
 }

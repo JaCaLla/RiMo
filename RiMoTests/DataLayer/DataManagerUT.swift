@@ -9,7 +9,6 @@ import XCTest
 
 @testable import RiMo
 import XCTest
-
 final class DataManagerUT: XCTestCase {
 
     var sut: DataManager!
@@ -36,9 +35,11 @@ final class DataManagerUT: XCTestCase {
     }
 
     func testFetchCharactersWithError() async throws {
-        let characterService = CharacterService()
-        characterService.forcedErrorApi = .noDataResponse
-        
+        let characterService = await CharacterService()
+
+        let baseService = await characterService.baseService
+        await baseService.setforcedErrorApi(.noDataResponse)
+
         let result = await sut.fetchCharacters(characterService)
         switch result {
         case .failure(let error):
@@ -49,10 +50,11 @@ final class DataManagerUT: XCTestCase {
     }
     
     func testFetchCharactersMockData() async throws {
-        let characterService = CharacterService()
+        let characterService = await CharacterService()
         let responseJson: ResponseJson<CharacterJson> = ResponseJson(info: InfoJson(count: 2), results: [CharacterJson.sample])
-        characterService.forcedResposeApi = responseJson
-        
+        let baseService = await characterService.baseService
+        await baseService.setforcedResposeApi(responseJson)
+
         let result = await sut.fetchCharacters(characterService)
         switch result {
         case .success(let characters):

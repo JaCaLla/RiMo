@@ -4,9 +4,21 @@
 //
 //  Created by Javier Calartrava on 9/6/24.
 //
+//@MainActor
+@globalActor
+actor GlobalManager {
+    static var shared = GlobalManager()
+}
 
-class CharacterService: BaseService<ResponseJson<CharacterJson>> {
-    open override func getPathParam() -> String {
-        "character"
+@GlobalManager
+final class CharacterService {
+
+    let baseService = BaseService<ResponseJson<CharacterJson>>(param: "character")
+    
+    init() {
+    }
+    
+    func fetch() async -> Result<ResponseJson<CharacterJson>, ErrorService> {
+        await baseService.fetch()
     }
 }
